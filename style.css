@@ -1,121 +1,56 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
-
 * {
     box-sizing: border-box;
-    margin: 0;
     padding: 0;
-}
-
-:root {
-    --xogreen: #37C27E;
-    --xobg: #100F11;
-    
-    /* background: var(--green); */
+    margin: 0;
 }
 
 body {
-    font-family: "Roboto Mono";
-    max-width: 900px;
-    margin: 50px auto;
-    background-color: var(--xobg);
-}
-
-@font-face {
-    font-family: 'Anders';
-    src: url('fonts/Anders.eot');
-    src: url('fonts/Anders.eot?#iefix') format('embedded-opentype'),
-        url('fonts/Anders.woff2') format('woff2'),
-        url('fonts/Anders.woff') format('woff'),
-        url('fonts/Anders.ttf') format('truetype'),
-        url('fonts/Anders.svg#Anders') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-#mainBody {
-    border: 3px solid var(--xogreen);
-    margin: 20px auto;
     display: flex;
-    flex-direction: column;
-    padding: 15px;
-    gap: 15px;
     justify-content: center;
-    align-items: center;
 }
 
-#containerLeft {
+#ipad {
+    flex: 1;
+    max-width: 800px;
+    min-height: 600px;
+    margin: 50px auto;
+    border: 20px solid black;
+    background-color: black;
+    border-radius: 22px;
+    display: flex;
+}
+
+#screen {
+    background-color: white;
     flex: 1;
     display: flex;
-    flex-direction: row;
-    gap: 2px;
-    width: 100%;
+    border-radius: 10px;
+    flex-direction: column;
 }
 
-#title {
-    flex: 3;
-    padding: 15px;
-    color: var(--xogreen);
-    font-family: 'Anders';
-    font-size: 30px;
-    text-align: center;
-}
-
-#options {
-    flex: 6;
-    display: flex;
-}
-
-#options ul {
-    list-style-type: none;
+#nav {
     flex: 1;
-    padding-right: 15px;
+    padding: 5px;
+    border-radius: 10px 10px 0px 0px;
+    background-color: lightpink;
+}
+
+#app {
+    flex: 8;
     display: flex;
-    align-items: center;
-    justify-content: right;
+    background-color: lightskyblue;
+    border-radius: 0px 0px 10px 10px;
 }
 
-#options li {
-    color: white;
-    margin: 2px;
-    padding: 10px;
-}
-
-#options button {
-    border: 3px inset #37C27E;
-    background-color: #100F11;
-    color: antiquewhite;
-    padding: 5px 10px;
-    font-family: "Roboto Mono";
-    font-weight: bolder;
-}
-
-#options button:active {
-    border: 3px outset #37C27E;
-}
-
-#containerRight {
-    flex: 2;
-    align-self: stretch;
-    margin-left: -15px;
-    margin-right: -15px;
-    margin-bottom: 30px;
+#tools {
+    flex: 1;
+    padding: 5px;
+    background-color: beige;
 }
 
 #canvas {
-    border-radius: 0px;
-    border-top: 3px solid var(--xogreen);
-    border-bottom: 3px solid var(--xogreen);;
-    color: var(--xogreen);
-    width: 894px;
-    height: 894px;
-    display: flex;
-    flex-wrap: wrap;
-    border-collapse: collapse;
-}
-
-#square {
-    border-collapse: collapse;
-    border-radius: 0;
-    flex: 1;
+    flex: 8;
+    padding: 5px;
+    border: 1px 0px 0px 1px solid black;
+    background-color: aquamarine;
 }
