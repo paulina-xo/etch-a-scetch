@@ -4,13 +4,19 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    border-radius: 6px;
+}
+
+:root {
+    --darkest: #0c0c0c;
+    --darker: ;
+    --dark: ;
 }
 
 body {
     font-family: "Roboto Mono", monospace;
     max-width: 1000px;
     margin: 100px auto;
-    border-radius: 10px;
 }
 
 #mainBody {
@@ -22,6 +28,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    box-shadow: 5px 5px 0px 0px white;
 }
 
 #containerLeft {
@@ -41,8 +48,19 @@ body {
 
 #options {
     flex: 5;
-    padding: 10px;
+    display: flex;
     background-color: lightskyblue;
+}
+
+#options ul {
+    list-style-type: none;
+    flex: 1;
+}
+
+#options li {
+    background-color: yellow;
+    margin: 10px;
+    padding: 10px;
 }
 
 #containerRight {
