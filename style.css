@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -7,50 +9,136 @@
 body {
     display: flex;
     justify-content: center;
+    font-family: "SF Pro Display";
+    background-image: url(/images/bg.png);
+    background-size: cover;
+    color: #ffffff;
 }
 
 #ipad {
     flex: 1;
-    max-width: 800px;
-    min-height: 600px;
+    max-width: 1200px;
+    min-height: 800px;
     margin: 50px auto;
-    border: 20px solid black;
+    border: 25px solid black;
     background-color: black;
     border-radius: 22px;
     display: flex;
+    
 }
 
 #screen {
-    background-color: white;
     flex: 1;
     display: flex;
     border-radius: 10px;
     flex-direction: column;
+    background-color: black;
 }
 
 #nav {
     flex: 1;
-    padding: 5px;
+    display: flex;
+    padding: 10px 15px;
     border-radius: 10px 10px 0px 0px;
-    background-color: lightpink;
+    background-color: #211F20;
+    align-items: center;
+    justify-content: center;
+}
+
+#title {
+    flex: 1;
+    font-weight: bolder;
+}
+
+#date {
+    flex: 1;
+    text-align: end;
+    font-weight: bolder;
 }
 
 #app {
-    flex: 8;
+    flex: 20;
     display: flex;
-    background-color: lightskyblue;
+    background-color: black;
     border-radius: 0px 0px 10px 10px;
 }
 
 #tools {
     flex: 1;
+    display: flex;
+    flex-direction: column;
     padding: 5px;
-    background-color: beige;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    background-color: #2a2a2a;
+    border-radius: 0px 0px 0px 10px;
+}
+
+#icons {
+    flex: 3;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    background-color: #242424;
+    margin: 15px 5px 5px 25px;
+    padding: 2px;
+    border-radius: 10px;
+}
+
+
+#icon {
+    width: 30px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+
+#icon:hover {
+    background-color: #1a1a1a;
+    cursor: pointer;
+}
+
+#size {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    color: #ffffff;
+    padding: 2px;
+    border-radius: 10px;
+    background-color: #242424;
+    margin: 15px 5px 15px 25px;
+}
+
+#size div {
+    font-size: smaller;
+    border-radius: 6px;
+    padding: 5px;
+    font-weight: lighter;
+}
+
+#size div:hover {
+    background-color: #1a1a1a;
+    cursor: pointer;
 }
 
 #canvas {
-    flex: 8;
+    flex: 14;
+    display: flex;
     padding: 5px;
-    border: 1px 0px 0px 1px solid black;
-    background-color: aquamarine;
+    background-color: #2A2A2A;
+    border-radius: 0px 0px 10px 0px;
+    justify-content: center;
+    align-items: center;
 }
+
+#board {
+    background-color: white;
+    margin: 10px;
+    width: 900px;
+    height: 640px;
+    -webkit-box-shadow: 0px 0px 18px 1px rgba(0,0,0,0.61); 
+    box-shadow: 0px 0px 18px 1px rgba(0,0,0,0.61);}
