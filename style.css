@@ -68,23 +68,21 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 5px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    justify-content: center;
+    padding: 15px 5px 15px 5px;
     text-align: center;
     background-color: #2a2a2a;
     border-radius: 0px 0px 0px 10px;
 }
 
 #icons {
-    flex: 2;
     display: flex;
-    justify-content: space-evenly;
+    gap: 20px;
     align-items: center;
     flex-direction: column;
     background-color: #242424;
     margin: 15px 5px 5px 25px;
-    padding: 2px;
+    padding: 20px 2px;
     border-radius: 10px;
 }
 
@@ -97,32 +95,16 @@ body {
 
 
 .icon:hover {
-    background-color: #1a1a1a;
     cursor: pointer;
 }
 
-/* PAPER SIZE
-    #size div {
-        font-size: smaller;
-        border-radius: 6px;
-        padding: 5px;
-        font-weight: lighter;
-    }
-
-    #size div:hover {
-        background-color: #1a1a1a;
-        cursor: pointer;
-    }
-*/
-
 #size {
-    flex: 1;
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
     color: #ffffff;
-    padding: 5px 2px 5px 2px;
+    gap: 20px;
+    padding: 20px 5px 20px 5px;
     border-radius: 10px;
     background-color: #242424;
     margin: 15px 5px 15px 25px;

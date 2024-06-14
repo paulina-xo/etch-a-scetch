@@ -116,21 +116,17 @@ let DEFAULT_COLOR = "#000000";
 
 // DISPLAY DATE id="today"
 
-function main()
-{
-    getSize();
-    changeColor(DEFAULT_COLOR);
-
-    // ----------------- TOOLS -----------------
+function main() {
 
     const drawButton = document.getElementById("draw");
     const rainbowButton = document.getElementById("rainbow");
     const eraseButton = document.getElementById("eraser");
+
     const clearButton = document.getElementById("clear");
-    
+    clearButton.addEventListener("click", clearAll);
 
-    // ----------------- EVENT LISTENERS -----------------
-
+    getSize();
+    changeColor(DEFAULT_COLOR);
 
 }
 
@@ -154,6 +150,12 @@ function changeSize(grid) {
         square.style.minHeight = `${squareSize}px`;
         paper.appendChild(square);
     }
+}
+
+function clearAll() {
+    const paper = document.getElementById("paper");
+    paper.innerHTML = "";
+    getSize();
 }
 
 main();
