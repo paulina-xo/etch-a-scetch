@@ -112,7 +112,6 @@ function clearAll(amount) {
 main();
 
 */
-
 let DEFAULT_COLOR = "#000000";
 
 // DISPLAY DATE id="today"
