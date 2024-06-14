@@ -10,20 +10,21 @@ body {
     display: flex;
     justify-content: center;
     font-family: "SF Pro Display";
-    background-image: url(/images/bg.png);
-    background-size: cover;
+    background-color: #1a1a1a;
     color: #ffffff;
 }
 
 #ipad {
     flex: 1;
-    max-width: 1200px;
+    max-width: 1150px;
     min-height: 800px;
     margin: 50px auto;
     border: 25px solid black;
     background-color: black;
     border-radius: 22px;
     display: flex;
+    -webkit-box-shadow: 0px 0px 18px 5px rgba(0,0,0,0.2);  
+    box-shadow: 0px 0px 18px 5px rgba(0,0,0,0.2);
     
 }
 
@@ -76,7 +77,7 @@ body {
 }
 
 #icons {
-    flex: 3;
+    flex: 2;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -88,17 +89,31 @@ body {
 }
 
 
-#icon {
+.icon {
     width: 30px;
     border-radius: 10px;
     padding: 5px;
 }
 
 
-#icon:hover {
+.icon:hover {
     background-color: #1a1a1a;
     cursor: pointer;
 }
+
+/* PAPER SIZE
+    #size div {
+        font-size: smaller;
+        border-radius: 6px;
+        padding: 5px;
+        font-weight: lighter;
+    }
+
+    #size div:hover {
+        background-color: #1a1a1a;
+        cursor: pointer;
+    }
+*/
 
 #size {
     flex: 1;
@@ -107,23 +122,46 @@ body {
     align-items: center;
     flex-direction: column;
     color: #ffffff;
-    padding: 2px;
+    padding: 5px 2px 5px 2px;
     border-radius: 10px;
     background-color: #242424;
     margin: 15px 5px 15px 25px;
 }
 
-#size div {
-    font-size: smaller;
-    border-radius: 6px;
-    padding: 5px;
-    font-weight: lighter;
+#size p {
+    font-size: 14px;
 }
 
-#size div:hover {
-    background-color: #1a1a1a;
+#gridSlider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    background: #404040; 
+    opacity: 0.7;
+    writing-mode: vertical-lr;
+    direction: rtl;
+    vertical-align: middle;
     cursor: pointer;
 }
+
+#gridSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+#gridSlider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #555;
+    cursor: pointer;
+}
+
 
 #canvas {
     flex: 14;
@@ -135,10 +173,45 @@ body {
     align-items: center;
 }
 
-#board {
-    background-color: white;
-    margin: 10px;
-    width: 900px;
+#paper {
+    background-color: rgb(243, 242, 233);
+    width: 640px;
     height: 640px;
+    color: black;
+    display: flex;
+    flex-wrap: wrap;
     -webkit-box-shadow: 0px 0px 18px 1px rgba(0,0,0,0.61); 
-    box-shadow: 0px 0px 18px 1px rgba(0,0,0,0.61);}
+    box-shadow: 0px 0px 18px 1px rgba(0,0,0,0.61);
+}
+
+#square {
+    flex: 1;
+    flex-wrap: wrap;
+    border: 1px solid rgba(128, 128, 128, 0.139);
+}
+
+/* SQUARE SIZES
+    .small {
+        flex: 1;
+        flex-wrap: wrap;
+        min-width: 38.8px;
+        min-height: 38.8px;
+        border: 1px solid hsla(0, 0%, 50%, 0.2);
+    }
+
+    .medium {
+        flex: 1;
+        flex-wrap: wrap;
+        min-width: 20px;
+        min-height: 20px;
+        border: 1px solid hsla(0, 0%, 50%, 0.2);
+    }
+
+    .large {
+        flex: 1;
+        flex-wrap: wrap;
+        min-width: 10.15625px;
+        min-height: 10.15625px;
+        border: 1px solid hsla(0, 0%, 50%, 0.2);
+    }
+*/

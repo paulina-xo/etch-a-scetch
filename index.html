@@ -10,7 +10,7 @@
     <!-- https://www.flaticon.com/free-icon/color-palette_3199899?term=drawing&page=1&position=5&origin=search&related_id=3199899 -->
 
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    
     
 </head>
 <body>
@@ -25,9 +25,7 @@
                 </div>
 
                 <div id="date">
-                    <p id="demo">TODAY'S DATE</p>
-                        
-                
+                    <p id="today">TODAY'S DATE</p>
                 </div>
 
 
@@ -36,29 +34,29 @@
             <div id="app">
                 <div id="tools">
                     <div id="icons">
-                        <img id="icon" src="images/color.png">
-                        <img id="icon" src="images/draw.png">
-                        <img id="icon" src="images/rainbow.png">
-                        <img id="icon" src="images/eraser.png">
-                        <img id="icon" src="images/clear.png">
+                        <img class="icon" id="draw" src="images/draw.png">
+                        <img class="icon" id="rainbow" src="images/rainbow.png">
+                        <img class="icon" id="eraser" src="images/eraser.png">
+                        <img class="icon" id="clear" src="images/clear.png">
                     </div>
                     <div id="size">
-                        <div>x16</div>
-                        <div>x32</div>
-                        <div>x64</div>
+                        <input oninput="getSize()" class="slider" id="gridSlider" type="range" min="10" max="100" step="1" value="50%" orient="vertical"/>
+                        <p><output id="value"></output></p>
                     </div>
                        
                 </div>
                 
     
                 <div id="canvas">
-                    <div id="board"></div>
+                    <div id="paper">
+                        
+                    </div>
                 </div>
             </div>
             
 
         </div>
     </div>
-
+    <script src="script.js"></script>
 </body>
 </html>
