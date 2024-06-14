@@ -4,7 +4,6 @@ let drawingOn = false;
 
 function main() {
 
-    displayTime();
     const drawButton = document.getElementById("draw");
     drawButton.addEventListener("click", function() { setMode('draw'); });
 
