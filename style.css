@@ -166,34 +166,8 @@ body {
     box-shadow: 0px 0px 18px 1px rgba(0,0,0,0.61);
 }
 
-#square {
+.square {
     flex: 1;
     flex-wrap: wrap;
     border: 1px solid rgba(128, 128, 128, 0.139);
 }
-
-/* SQUARE SIZES
-    .small {
-        flex: 1;
-        flex-wrap: wrap;
-        min-width: 38.8px;
-        min-height: 38.8px;
-        border: 1px solid hsla(0, 0%, 50%, 0.2);
-    }
-
-    .medium {
-        flex: 1;
-        flex-wrap: wrap;
-        min-width: 20px;
-        min-height: 20px;
-        border: 1px solid hsla(0, 0%, 50%, 0.2);
-    }
-
-    .large {
-        flex: 1;
-        flex-wrap: wrap;
-        min-width: 10.15625px;
-        min-height: 10.15625px;
-        border: 1px solid hsla(0, 0%, 50%, 0.2);
-    }
-*/

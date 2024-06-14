@@ -1,133 +1,21 @@
-/*
-function main() {
-
-    generateSmall();
-
-    // PAPER
-    const paper = document.getElementById("paper");
-
-    // TOOLS
-    const colorPicker = document.getElementById("picker");
-    const drawingPen = document.getElementById("draw");
-    const drawRainbow = document.getElementById("rainbow");
-    const eraser = document.getElementById("eraser");
-    const clearPaper = document.getElementById("clear");
-
-    // EVENT LISTENERS FOR TOOLS
-    if (colorPicker) colorPicker.addEventListener("click", function() { showColorPicker(); });
-    if (drawingPen) drawingPen.addEventListener("click", function() { usePickedColor(); });
-    if (drawRainbow) drawRainbow.addEventListener("click", function() { randomizeColor(); });
-    if (eraser) eraser.addEventListener("click", function() { drawWhite(); });
-    if (clearPaper) clearPaper.addEventListener("click", function() { clearAll(); });
-
-    // SIZES
-    const small = document.getElementById("16");
-    const medium = document.getElementById("32");
-    const large = document.getElementById("64");
-
-    // EVENT LISTENERS FOR SIZES
-    if (small) small.addEventListener("click", function() { generateSmall(); });
-    if (medium) medium.addEventListener("click", function() { generateMedium(); });
-    if (large) large.addEventListener("click", function() { generateLarge(); });
-}
-
-function generateSmall() {
-    const paper = document.getElementById("paper");
-    const amount = 256;
-
-    paper.innerHTML = '';
-
-    for (let i = 0; i < amount; i++) {
-        const square = document.createElement("div");
-        square.className = "small";
-        paper.appendChild(square);
-    }
-
-    const squares = document.getElementsByClassName("small");
-    for (let i = 0; i < squares.length; i++) {
-        squares[i].addEventListener("mouseover", function() {
-            this.style.backgroundColor = "black";
-        });
-    }
-
-    const clearPaper = document.getElementById("clear");
-    if (clearPaper) clearPaper.addEventListener("click", function() { clearAll(amount); });
-
-}
-
-function generateMedium() {
-    const paper = document.getElementById("paper");
-    const amount = 1024;
-
-    paper.innerHTML = '';
-
-    for (let i = 0; i < amount; i++) {
-        const square = document.createElement("div");
-        square.className = "medium";
-        paper.appendChild(square);
-    }
-
-    const squares = document.getElementsByClassName("medium");
-    for (let i = 0; i < squares.length; i++) {
-        squares[i].addEventListener("mouseover", function() {
-            this.style.backgroundColor = "black";
-        });
-    }
-
-    const clearPaper = document.getElementById("clear");
-    if (clearPaper) clearPaper.addEventListener("click", function() { clearAll(amount); });
-}
-
-function generateLarge() {
-    const paper = document.getElementById("paper");
-    const amount = 4096;
-
-    paper.innerHTML = '';
-
-    for (let i = 0; i < amount; i++) {
-        const square = document.createElement("div");
-        square.className = "large";
-        paper.appendChild(square);
-    }
-
-    const squares = document.getElementsByClassName("large");
-    for (let i = 0; i < squares.length; i++) {
-        squares[i].addEventListener("mouseover", function() {
-            this.style.backgroundColor = "black";
-        });
-    }
-    
-    const clearPaper = document.getElementById("clear");
-    if (clearPaper) clearPaper.addEventListener("click", function() { clearAll(amount); });
-         
-}
-
-function clearAll(amount) {
-
-    if (amount === 256) {generateSmall();}
-    else if (amount === 1024) {generateMedium();}
-    else if (amount === 4096) {generateLarge();}
-}
-
-main();
-
-*/
 let DEFAULT_COLOR = "#000000";
-
-// DISPLAY DATE id="today"
+let currentMode = 'draw';
+let drawingOn = false;
 
 function main() {
-
     const drawButton = document.getElementById("draw");
+    drawButton.addEventListener("click", function() { setMode('draw'); });
+
     const rainbowButton = document.getElementById("rainbow");
+    rainbowButton.addEventListener("click", function() { setMode('rainbow'); });
+
     const eraseButton = document.getElementById("eraser");
+    eraseButton.addEventListener("click", function() { setMode('erase'); });
 
     const clearButton = document.getElementById("clear");
     clearButton.addEventListener("click", clearAll);
-
+    
     getSize();
-    changeColor(DEFAULT_COLOR);
-
 }
 
 function getSize() {
@@ -138,18 +26,75 @@ function getSize() {
 }
 
 function changeSize(grid) {
-
     const paper = document.getElementById("paper");
     paper.innerHTML = "";
     let squareSize = 640 / grid;
 
-    for (let i = 0; i < (grid*grid); i++) {
+    for (let i = 0; i < grid * grid; i++) {
         const square = document.createElement("div");
-        square.id = "square";
+        square.className = "square";
         square.style.minWidth = `${squareSize}px`;
         square.style.minHeight = `${squareSize}px`;
         paper.appendChild(square);
+
+        square.addEventListener("mousedown", function(event) {
+            drawingOn = true;
+            startDrawing(square);
+        });
+
+        square.addEventListener("mousemove", function(event) {
+            if (drawingOn) {
+                continueDrawing(square);
+            }
+        });
+
+        square.addEventListener("mouseup", function(event) {
+            drawingOn = false;
+        });
     }
+}
+
+function startDrawing(square) {
+    switch (currentMode) {
+        case 'draw':
+            square.style.backgroundColor = "black";
+            break;
+        case 'rainbow':
+            square.style.backgroundColor = `#${randomColor()}`;
+            break;
+        case 'erase':
+            square.style.backgroundColor = "rgb(243, 242, 233)";
+            break;
+    }
+}
+
+function continueDrawing(square) {
+    switch (currentMode) {
+        case 'draw':
+            square.style.backgroundColor = "black";
+            break;
+        case 'rainbow':
+            square.style.backgroundColor = `#${randomColor()}`;
+            break;
+        case 'erase':
+            square.style.backgroundColor = "rgb(243, 242, 233)";
+            break;
+    }
+}
+
+function setMode(mode) {
+    currentMode = mode;
+}
+
+function randomColor() {
+    let colors = "ABCDEF0123456789";
+    let color = "";
+
+    for (let i = 0; i < 6; i++) {
+        color += colors.charAt(Math.floor(Math.random() * colors.length));
+    }
+
+    return color;
 }
 
 function clearAll() {
