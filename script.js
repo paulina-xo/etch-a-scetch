@@ -1,9 +1,9 @@
-let DEFAULT_COLOR = "#000000";
 let currentMode = 'draw';
 let drawingOn = false;
 
 function main() {
 
+    // EVENT LISTENERS FOR DRAWING
     const drawButton = document.getElementById("draw");
     drawButton.addEventListener("click", function() { setMode('draw'); });
 
@@ -13,10 +13,13 @@ function main() {
     const eraseButton = document.getElementById("eraser");
     eraseButton.addEventListener("click", function() { setMode('erase'); });
 
+    // EVENT LISTENER FOR CLEARALL
     const clearButton = document.getElementById("clear");
     clearButton.addEventListener("click", clearAll);
     
+    // GRID SIZE
     getSize();
+
 }
 
 function getSize() {
@@ -38,24 +41,18 @@ function changeSize(grid) {
         square.style.minHeight = `${squareSize}px`;
         paper.appendChild(square);
 
-        square.addEventListener("mousedown", function(event) {
-            drawingOn = true;
-            startDrawing(square);
-        });
+        // START DRAWING ON MOUSEDOWN
+        square.addEventListener("mousedown", function(event) { drawingOn = true; drawing(square); });
 
-        square.addEventListener("mousemove", function(event) {
-            if (drawingOn) {
-                continueDrawing(square);
-            }
-        });
+        // CONTINUE ON MOUSEMOVE
+        square.addEventListener("mousemove", function(event) { if (drawingOn) { drawing(square); }});
 
-        square.addEventListener("mouseup", function(event) {
-            drawingOn = false;
-        });
+        // STOP ON MOUSEUP
+        square.addEventListener("mouseup", function(event) { drawingOn = false; });
     }
 }
 
-function startDrawing(square) {
+function drawing(square) {
     switch (currentMode) {
         case 'draw':
             square.style.backgroundColor = "black";
@@ -69,23 +66,11 @@ function startDrawing(square) {
     }
 }
 
-function continueDrawing(square) {
-    switch (currentMode) {
-        case 'draw':
-            square.style.backgroundColor = "black";
-            break;
-        case 'rainbow':
-            square.style.backgroundColor = `#${randomColor()}`;
-            break;
-        case 'erase':
-            square.style.backgroundColor = "rgb(243, 242, 233)";
-            break;
-    }
-}
 
 function setMode(mode) {
     currentMode = mode;
 }
+
 
 function randomColor() {
     let colors = "ABCDEF0123456789";
@@ -98,10 +83,12 @@ function randomColor() {
     return color;
 }
 
+
 function clearAll() {
     const paper = document.getElementById("paper");
     paper.innerHTML = "";
     getSize();
 }
+
 
 main();
