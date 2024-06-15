@@ -166,8 +166,8 @@ body {
 
 #paper {
     background-color: rgb(243, 242, 233);
-    width: 640px;
-    height: 640px;
+    width: 641px;
+    height: 641px;
     color: black;
     display: flex;
     flex-wrap: wrap;
@@ -182,12 +182,10 @@ body {
 .square {
     flex: 1;
     flex-wrap: wrap;
-    overflow: hidden;
     cursor: crosshair;
-    border: 0.25px solid rgba(129, 129, 129, 0.057);
+    border: 0.05px solid rgba(128, 128, 128, 0.081);
     user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
     -moz-user-select: none;
-
 }
