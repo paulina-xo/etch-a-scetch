@@ -13,7 +13,7 @@ body {
     margin: 7% auto;
     font-family: "SF Pro Display";
     background-color: #1a1a1a;
-    background-image: url(/images/background.png);
+    background-image: url("/images/background.png");
     color: #ffffff;
 }
 
